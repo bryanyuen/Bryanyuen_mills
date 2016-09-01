@@ -29,14 +29,7 @@ public class Calculate {
 		double answer;
 		answer=degree*(180/3.14159);
 		return(answer);
-	}
-	public static discriminant (double abcValue){
-		double aValue;
-		double bValue;
-		double cValue;
-		double answer;
-		answer= (bValue*bValue)+(-4*aValue*cValue);
-		return(answer);
+		
 	}
 	
 }
