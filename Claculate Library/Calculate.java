@@ -30,13 +30,66 @@ public class Calculate {
 		answer=degree*(180/3.14159);
 		return(answer);
 	}
-	public static discriminant (double abcValue){
-		double aValue;
-		double bValue;
-		double cValue;
+	public static double discriminant (double aValue,double bValue,double cValue){
 		double answer;
 		answer= (bValue*bValue)+(-4*aValue*cValue);
 		return(answer);
 	}
-	
-}
+	public static String toImproperFrac (int wholenumber, int numerator, int denominator){
+		String answer;
+		answer= ((wholenumber*denominator)+numerator)+"/"+denominator;
+		return(answer);
+	}
+	public static String toMixedNum (int numerator, int denominator){
+		String answer;
+		answer=(numerator/denominator)+"_"+(numerator%denominator)+"/"+denominator;
+		return answer;
+	}
+	public static String foil (int a,int b, int c, int d){
+		String answer;
+		answer=(a*c)+"x^2"+((a*d)+(b*c))+"x"+(b*d);
+		return answer;
+	}
+	public static boolean isDivisibleBy (int a, int b){
+		if(a%b==0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public static double absValue (double a){
+		if(a<0){
+			return (a+a+a);
+		}else{
+			return a;
+		}
+	}
+	public static int max (int a, int b){
+		if(a>b){
+			return a;
+		}else{
+			return b;
+		}
+	}
+	public static double max (double a, double b){
+		if(a>b){
+			return a;
+		}else{
+			return b;
+		}
+	}
+	public static int min (int a, int b){
+		if(a>b){
+			return b;
+		}else{
+			return a;
+		}
+	}
+	public static double round2 (double a, int place){
+		if(place>5){
+			return a+(place+1);
+		}else{
+			return a+place;
+		}	
+	}
+}	
