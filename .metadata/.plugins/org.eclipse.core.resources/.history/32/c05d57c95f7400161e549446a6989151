@@ -1,0 +1,108 @@
+
+public class Calculate {
+	public static int square (int number){
+		int answer;
+		answer=number*number;
+		return(answer);
+	}
+
+	public static int cube (int number){
+		int answer;
+		answer=number*number*number;
+		return(answer);
+	}
+	public static int average(int number){
+		int answer=(number+number)/2;
+		return(answer);
+	}
+	public static double average(double number){
+		double answer;
+		answer=(number+number+number)/3;
+		return(answer);
+	}
+	public static double toDegrees (double radian){
+		double answer;
+		answer=radian*(180/3.14159);
+		return(answer);
+	}
+	public static double toRadians (double degree){
+		double answer;
+		answer=degree*(3.14159/180);
+		return(answer);
+	}
+	public static double discriminant (double aValue,double bValue,double cValue){
+		double answer;
+		answer= (bValue*bValue)+(-4*aValue*cValue);
+		return(answer);
+	}
+	public static String toImproperFrac (int wholenumber, int numerator, int denominator){
+		String answer;
+		answer= ((wholenumber*denominator)+numerator)+"/"+denominator;
+		return(answer);
+	}
+	public static String toMixedNum (int numerator, int denominator){
+		String answer;
+		answer=(numerator/denominator)+"_"+(numerator%denominator)+"/"+denominator;
+		return answer;
+	}
+	public static String foil (int a,int b, int c, int d){
+		String answer;
+		answer=(a*c)+"x^2"+((a*d)+(b*c))+"x"+(b*d);
+		return answer;
+	}
+	public static boolean isDivisibleBy (int a, int b){
+		if(a%b==0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public static double absValue (double a){
+		if(a<0){
+			return (a+a+a);
+		}else{
+			return a;
+		}
+	}
+	public static int max (int a, int b){
+		if(a>b){
+			return a;
+		}else{
+			return b;
+		}
+	}
+	public static double max (double a, double b){
+		if(a>b){
+			return a;
+		}else{
+			return b;
+		}
+	}
+	public static int min (int a, int b){
+		if(a>b){
+			return b;
+		}else{
+			return a;
+		}
+	}
+	public static double round2 (double a){
+		double b= (int)a*100+0.5;
+		double answer=b/100;
+		return answer;
+	}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				
+		
+		
+		}	
+	}
+}	

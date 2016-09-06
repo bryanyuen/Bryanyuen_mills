@@ -22,12 +22,12 @@ public class Calculate {
 	}
 	public static double toDegrees (double radian){
 		double answer;
-		answer=radian*(3.14159/180);
+		answer=radian*(180/3.14159);
 		return(answer);
 	}
 	public static double toRadians (double degree){
 		double answer;
-		answer=degree*(180/3.14159);
+		answer=degree*(3.14159/180);
 		return(answer);
 	}
 	public static double discriminant (double aValue,double bValue,double cValue){
@@ -85,11 +85,10 @@ public class Calculate {
 			return a;
 		}
 	}
-	public static double round2 (double a, int place){
-		if(place>5){
-			return a+(place+1);
-		}else{
-			return a+place;
-		}	
+	public static double round2 (double a){
+		double b= (int)a*100+0.5;
+		double answer=b/100;
+		return answer;
 	}
+
 }	
