@@ -126,4 +126,9 @@ public class Calculate {
     	}while ((t - squareroot) !=0);
     	return squareroot;
     }
+    public static String quadForm (int a, int b, int c){
+    	String answer;
+    	
+    }
 }
+
