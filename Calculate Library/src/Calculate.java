@@ -82,7 +82,7 @@ public class Calculate {
 		}
 	}
 	public static double round2 (double a){
-		double b= (int)a*100+0.5;
+		double b= (int)a*100+5;
 		double answer=b/100;
 		return answer;
 	}
@@ -126,9 +126,28 @@ public class Calculate {
     	}while ((t - squareroot) !=0);
     	return squareroot;
     }
-    public static String quadForm (int a, int b, int c){
-    	String answer;
-    	
-    }
+    public static String quadForm(int a, int b, int c){
+    	String answer = "";
+    	double x1; //The positive solution
+    	double x2; //The negative solution
+    	double x3; //round the positive solution 
+    	double x4; //round the negative solution
+    	if(Calculate.discriminant(a, b, c) == 0){
+    		x1 = ((-b+Calculate.sqrt(Calculate.discriminant(a, b, c)))/(2*a));
+    		x3= Calculate.round2(x1);
+    		answer = String.valueOf(x3);
+    	}else if(Calculate.discriminant(a, b, c) < 0){
+    		answer = "no real roots";
+    	}else if(Calculate.discriminant(a, b, c) > 0){
+    		x2 = ((-b-Calculate.sqrt(Calculate.discriminant(a, b, c)))/(2*a));
+    		x4 = Calculate.round2(x2);
+    		x1 = ((-b+Calculate.sqrt(Calculate.discriminant(a, b, c)))/(2*a));
+    		x3 = Calculate.round2(x1);
+    		answer = String.valueOf(x3) + "and" + String.valueOf(x4);
+    	}
+    	return answer;
+    }   
 }
+    
+    		
 
