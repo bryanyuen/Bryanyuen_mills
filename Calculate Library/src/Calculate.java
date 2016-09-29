@@ -82,9 +82,14 @@ public class Calculate {
 		}
 	}
 	public static double round2 (double a){
-		double b= (int)a*100+5;
-		double answer=b/100;
-		return answer;
+		int b = (int)(a*100);
+		double x;
+		if ((b + 0.5) >= (a*100)){
+			x = b/100.0;
+			return x;
+		}else{ x = (b+1)/100.0;
+		return x;
+		}
 	}
 	public static double exponent (double a, int b){
 	 int answer =1;
@@ -127,27 +132,20 @@ public class Calculate {
     	return squareroot;
     }
     public static String quadForm(int a, int b, int c){
-    	String answer = "";
-    	double x1; //The positive solution
-    	double x2; //The negative solution
-    	double x3; //round the positive solution 
-    	double x4; //round the negative solution
-    	if(Calculate.discriminant(a, b, c) == 0){
-    		x1 = ((-b+Calculate.sqrt(Calculate.discriminant(a, b, c)))/(2*a));
-    		x3= Calculate.round2(x1);
-    		answer = String.valueOf(x3);
-    	}else if(Calculate.discriminant(a, b, c) < 0){
-    		answer = "no real roots";
-    	}else if(Calculate.discriminant(a, b, c) > 0){
-    		x2 = ((-b-Calculate.sqrt(Calculate.discriminant(a, b, c)))/(2*a));
-    		x4 = Calculate.round2(x2);
-    		x1 = ((-b+Calculate.sqrt(Calculate.discriminant(a, b, c)))/(2*a));
-    		x3 = Calculate.round2(x1);
-    		answer = String.valueOf(x3) + "and" + String.valueOf(x4);
+    	double sqrt = Calculate.sqrt(Calculate.discriminant(a, b, c));
+    	double roota = Calculate.round2((-b + sqrt) / (2*a));
+    	double rootb = Calculate.round2((-b - sqrt) / (2*a));
+    	if (roota == rootb){
+    		return String.valueOf(roota);
+    	}else if(Calculate.sqrt(Calculate.discriminant(a, b, c)) <= 0){
+    		return "no real roots";
+    	}else{
+    		return Double.toString(roota) + " and" + Double.toString(rootb);
     	}
-    	return answer;
-    }   
+    }
 }
+    	
+
     
     		
 
