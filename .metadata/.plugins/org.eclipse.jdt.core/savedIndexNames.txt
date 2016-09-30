@@ -1,5 +1,2 @@
 INDEX VERSION 1.129+/Users/bryanyuen/Desktop/Bryanyuen_mills/.metadata/.plugins/org.eclipse.jdt.core
-1510534497.index
-2430865905.index
 33544597.index
-751203406.index
