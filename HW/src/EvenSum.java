@@ -7,12 +7,14 @@ import java.util.*;
 public class EvenSum {
 	public static void main(String[] args) {
 		Scanner userInput = new Scanner (System.in);
-		System.out.println("Give me 8 integers");
+		System.out.println("How many integers do you have ? ");
+		int times = userInput.nextInt();
+		System.out.println("Type your integers here!!!");
 		int min = 100000000;
 		int max = 0;
 		int maxEven = 0;
 		int evenTotal = 0;
-		for (int i = 0; i<8; i++){
+		for (int i = 0; i<times; i++){
 			int inputNumber = userInput.nextInt();
 			if(inputNumber%2 == 0){
 				evenTotal += inputNumber;
