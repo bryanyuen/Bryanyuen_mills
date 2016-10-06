@@ -1,2 +1,1 @@
-INDEX VERSION 1.129+C:\Users\APCS2\Desktop\Bryanyuen_mills\.metadata\.plugins\org.eclipse.jdt.core
-468246969.index
+INDEX VERSION 1.129+/Users/bryanyuen/Desktop/Bryanyuen_mills/.metadata/.plugins/org.eclipse.jdt.core
