@@ -97,10 +97,10 @@ public class Calculate {
 		}
 	}
 	//This program is used to round a double to 2 decimal places.
-	public static double round2 (double a){
-		int b = (int)(a*100);
+	public static double round2 (double decimal){
+		int b = (int)(decimal*100);
 		double x;
-		if ((b + 0.5) >= (a*100)){
+		if ((b + 0.5) >= (decimal*100)){
 			x = b/100.0;
 			return x;
 		}else{ x = (b+1)/100.0;
@@ -121,25 +121,45 @@ public class Calculate {
 		}
 		return number;
 	}
-	
-	public static boolean isPrime (int a){
+	//This program is used to determine if the input number a prime number.
+	public static boolean isPrime (int number){
 		boolean check;
-		for(int i= a-1; i>1; i--){
-			check = Calculate.isDivisibleBy(a, i);
+		if (number <= 1){
+			return false;
+		}
+		for(int i= number-1; i>1; i--){
+			check = Calculate.isDivisibleBy(number, i);
 			if (check == true){
 				return false;
 			}
 		}
 		return true;
 	}
+	//This program is used to find out the greatest common factor of two integers.
 	public static int gcf (int a, int b){
-		while(b!=0){
-			int c = a;
-			a =b;
-			b =b%c;
+		int answer = 1;
+		if (a < 0){
+			a = (int)Calculate.absValue(a);
 		}
-		return (int)Calculate.absValue(a);
+		if (b < 0){
+			b = (int)Calculate.absValue(b);
+		}
+		if (a>b){
+			if (a%b == 0){
+				answer = b;
+			}
+		}
+		if (b > a){
+			if(b%a == 0){
+				answer = a;
+			}
+		}
+		if ( a == b){
+			answer = a;
+		}
+		return (int)Calculate.absValue(answer);
 	}
+	//This program helps you to squareroot a number. 
     public static double sqrt (double a){
     	double t;
     	double squareroot = a/2;
@@ -149,6 +169,7 @@ public class Calculate {
     	}while ((t - squareroot) !=0);
     	return squareroot;
     }
+    //This program is used to check the discriminant to determine the number of roots and the exact value of the roots.
     public static String quadForm(int a, int b, int c){
     	double sqrt = Calculate.sqrt(Calculate.discriminant(a, b, c));
     	double roota = Calculate.round2((-b + sqrt) / (2*a));
