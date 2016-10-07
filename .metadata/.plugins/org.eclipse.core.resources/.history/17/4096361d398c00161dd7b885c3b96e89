@@ -8,7 +8,7 @@ public class DoMath {
 		//System.out.println(Calculate.factorial(5));
 		//System.out.println(Calculate.max(32,321));
 		//System.out.println(Calculate.sqrt(68));
-		System.out.println(Calculate.round2(1.738));
+		System.out.println(Calculate.round2(1.796));
 	}
 
 }

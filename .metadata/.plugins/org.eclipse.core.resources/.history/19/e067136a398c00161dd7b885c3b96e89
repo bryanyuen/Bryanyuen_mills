@@ -160,12 +160,12 @@ public class Calculate {
 		return (int)Calculate.absValue(answer);
 	}
 	//This program helps you to squareroot a number. 
-    public static double sqrt (double number){
+    public static double sqrt (double a){
     	double t;
-    	double squareroot = number/2;
+    	double squareroot = a/2;
     	do{
     		t = squareroot;
-    		squareroot = (t + (number/t))/2;
+    		squareroot = (t + (a/t))/2;
     	}while ((t - squareroot) !=0);
     	return squareroot;
     }
