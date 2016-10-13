@@ -15,13 +15,17 @@ public class Magpie2 {
 		String response = "";
 		if (statement.indexOf("no") >= 0) {
 			response = "Why so negative?";
-		}if (statement.indexOf("ball") >= 0){
+		}
+		if (statement.indexOf("ball") >= 0){
 			response = "You must be sporty!!!";
-		}if (statement.indexOf("lunch") >= 0){
+		}
+		if (statement.indexOf("lunch") >= 0){
 			response = "I am so hungry!!!";
-		}if (statement.indexOf("teacher") >= 0){
+		}
+		if (statement.indexOf("teacher") >= 0){
 			response = "He sounds like a good teacher.";
-		}if (statement.indexOf("mother") >= 0
+		}
+		if (statement.indexOf("mother") >= 0
 				|| statement.indexOf("father") >= 0
 				|| statement.indexOf("sister") >= 0
 				|| statement.indexOf("brother") >= 0) {
@@ -29,7 +33,7 @@ public class Magpie2 {
 		}
 		if (statement.length() == 0){
 			response = "Say something, please.";
-		} else {
+		}else {
 			response = getRandomResponse();
 		}
 		return response;
