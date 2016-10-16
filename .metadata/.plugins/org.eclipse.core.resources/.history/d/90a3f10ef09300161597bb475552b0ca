@@ -13,7 +13,6 @@ public class Magpie2 {
 	 */
 	public String getResponse(String statement) {
 		String response = "";
-			response = getRandomResponse();
 		if (statement.indexOf("no") >= 0) {
 			response = "Why so negative?";
 		}
@@ -35,8 +34,9 @@ public class Magpie2 {
 		if (statement.length() == 0){
 			response = "Say something, please.";
 		}
-
-		
+		else {
+			response = getRandomResponse();
+		}
 		return response;
 	}
 
