@@ -23,7 +23,28 @@ public class Magpie3 {
 	 */
 	
 	
-	public String getResponse(String statement) {
+	public String getRandomResponse() {
+		final int NUMBER_OF_RESPONSES = 6;
+		double r = Math.random();
+		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
+		String response = "";
+
+		if (whichResponse == 0) {
+			response = "Interesting, tell me more.";
+		} else if (whichResponse == 1) {
+			response = "Hmmm.";
+		} else if (whichResponse == 2) {
+			response = "Do you really think so?";
+		} else if (whichResponse == 3) {
+			response = "You don't say.";
+		}else if (whichResponse == 4){
+			response = "What are you talking about?";
+		}else if (whichResponse == 5){
+			response = "No comment!!";
+		}
+		
+
+		return response;
 		
 		// Paste part 2 code here	
 		
