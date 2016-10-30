@@ -28,22 +28,22 @@ public class Magpie4 {
 			if (findKeyword(statement,"no",0) >= 0) {
 				response = "Why so negative?";
 			}
-			else if (findKeyword(statement,"ball",0) >= 0) {
+			if (findKeyword(statement,"ball",0) >= 0) {
 				response = "You must be sporty!!!";
 			}
-			else if (findKeyword(statement,"lunch",0) >= 0) {
+			if (findKeyword(statement,"lunch",0) >= 0) {
 				response = "I am so hungry!!!";
 			}
-			else if (findKeyword(statement,"teacher",0) >= 0) {
+			if (findKeyword(statement,"teacher",0) >= 0) {
 				response = "He sounds like a good teacher.";
 			}
-			else if (findKeyword(statement,"mother",0) >= 0 
+			if (findKeyword(statement,"mother",0) >= 0 
 					|| findKeyword(statement,"father",0) >= 0
 					|| findKeyword(statement,"sister",0) >= 0
 					|| findKeyword(statement,"brother",0) >= 0){
 				response = "Tell me more about your family.";
 			}		
-			else if (statement.length() == 0){
+			if (statement.length() == 0){
 				response = "Say something, please.";
 			}
 		// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
@@ -60,20 +60,21 @@ public class Magpie4 {
 			if (psn >= 0 && findKeyword(statement, "you", psn) >=0){
 				response = transformIYouStatement(statement);
 			}
-		}if (findKeyword(statement,"you",0) < findKeyword(statement,"me",0)){
-			int psnOfYou = findKeyword(statement, "you", 0);
-			if (psnOfYou >= 0 && findKeyword(statement,"me",psnOfYou) >= 0){
+		}
+
+		else {
 			// Look for a two word (you <something> me)
 			// pattern
+			int psn = findKeyword(statement, "you", 0);
+
+			if (psn >= 0 && findKeyword(statement, "me", psn) >= 0) {
 				response = transformYouMeStatement(statement);
 			} else {
 				response = getRandomResponse();
 			}
+		}
 		return response;
-}
-			return response;
 	}
-	
 
 	/**
 	 * Take a statement with "I want to <something>." and transform it into
@@ -124,7 +125,8 @@ public class Magpie4 {
 		int psnOfYou = findKeyword(statement, "you", 0);
 		int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
 
-		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe).trim();
+		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe)
+				.trim();
 		return "What makes you think that I " + restOfStatement + " you?";
 	}
 	private String transformIYouStatement(String statement) {
@@ -180,9 +182,10 @@ public class Magpie4 {
 			psn = phrase.indexOf(goal.toLowerCase(), psn + 1);
 
 		}
+
 		return -1;
 	}
-	
+
 	/**
 	 * Search for one word in phrase. The search is not case sensitive. This
 	 * method will check that the given goal is not a substring of a longer
