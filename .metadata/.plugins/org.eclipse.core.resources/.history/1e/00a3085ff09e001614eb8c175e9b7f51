@@ -3,9 +3,9 @@ import java.util.Arrays;
 public class Split {
 
 	public static void main(String[] args) {
-		String sandwich = "bread orange banana ham";
+		String sandwich = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
 		String answer = sandwichMaker(sandwich);
-		System.out.println(answer.toString());
+		System.out.println(answer);
 			//String.split();
 			//It's a method that acts on a string, <StringName>.split(<String sp>);
 			//Where sp is the string where the string splits
@@ -50,13 +50,16 @@ public class Split {
 		if (realSandwich.length() > 1){
 		String [] realSandwich1 = realSandwich.split(" ");
 		String newSandwich1 = Arrays.toString(realSandwich1);
+		//String [] split = newSandwich.split("bread");
 		sandwich = newSandwich1;
 		}
 		else if (realSandwich.length() < 1){
-			sandwich = "It is not a sandwich!!!!";
+			String sandwich1 = "It is not a sandwich!!!!";
+			return sandwich1;
 		}
 		}else{ 
-			sandwich = "It is not a sandwich!!!!";
+			String answer = "It is not a sandwich!!!!";
+			return answer;
 		}
 		return sandwich;
 	}
