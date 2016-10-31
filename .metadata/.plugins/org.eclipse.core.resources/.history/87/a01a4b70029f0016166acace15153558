@@ -3,7 +3,9 @@ import java.util.Arrays;
 public class Split {
 
 	public static void main(String[] args) {
-		{
+		String sandwich = "bread orange banana bread ham";
+		String answer = sandwichMaker(sandwich);
+		System.out.println(answer.toString());
 			//String.split();
 			//It's a method that acts on a string, <StringName>.split(<String sp>);
 			//Where sp is the string where the string splits
@@ -38,25 +40,26 @@ public class Split {
 			 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 			*/
 			//task2
-			String sandwich = "apples pineapples bread bread cheese";
-			int first = sandwich.indexOf("bread");
-			int second = sandwich.indexOf("bread", first + 4);
-			String realSandwich = sandwich.substring(first, second);
-			System.out.println(first);
-			if (realSandwich.length() > 0){
-			String [] realSandwich1 = realSandwich.split(" ");
-			String newSandwich1 = Arrays.toString(realSandwich1);
-			//String [] split = newSandwich.split("bread");
-			System.out.println(newSandwich1);
-			}else{
-				System.out.println("It is not a sandwich!!!!");
-			}
-			
-
-		}
 
 	}
-
+	public static String sandwichMaker (String sandwich){
+		int first = sandwich.indexOf("bread");
+		int second = sandwich.indexOf("bread" , first +5);
+		if (second > 0){
+		String realSandwich = sandwich.substring(first+6, second);
+		if (realSandwich.length() > 1){
+		String [] realSandwich1 = realSandwich.split(" ");
+		String newSandwich1 = Arrays.toString(realSandwich1);
+		sandwich = newSandwich1;
+		}
+		else if (realSandwich.length() < 1){
+			sandwich = "It is not a sandwich!!!!";
+		}
+		}else{ 
+			sandwich = "It is not a sandwich!!!!";
+		}
+		return sandwich;
+	}
 
 	
 }

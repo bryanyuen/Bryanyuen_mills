@@ -127,19 +127,9 @@ public class Calculate {
 	}
 	//This program is used to raise a value to a positive integer power.
 	public static double exponent (double number, int exponent){
-		double answer = 1;
-		if(exponent > 0){
-			for(int i = 1; i <= exponent; i++){
-				answer *= number;
-			}
-		}else if(exponent == 0){
-			answer = 1;
-		}else if(exponent < 0){
-			for(int j = exponent; j <= -1; j++){
-				answer *= number;
-			}
-			answer = 1/answer;
-		}
+	 int answer =1;
+		for (int i = 1; i<=exponent; i++){
+			answer *=number;		}
 		return answer;
 	}
 	//This program is used to the factorial of the value passed.

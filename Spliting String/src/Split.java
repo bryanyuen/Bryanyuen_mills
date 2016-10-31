@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Split {
 
 	public static void main(String[] args) {
-		String sandwich = "bread orange banana ham";
+		String sandwich = "hahah bread orange banana bread ham";
 		String answer = sandwichMaker(sandwich);
 		System.out.println(answer.toString());
 			//String.split();

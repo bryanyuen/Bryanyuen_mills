@@ -64,12 +64,7 @@ public class Calculate {
 	//This program is used to convert a binomial multiplication form into a quadratic equation form.
 	public static String foil (int a,int b, int c, int d,String character){
 		String answer;
-		if(b*d<0){
-			int positiveC = (int)Calculate.absValue(b*d);
-			answer = ((a*c) + character + "^2" + " + "+((a*d)+(b*c)) + character + " - " + positiveC);
-		}else{
-			answer = ((a*c) + character + "^2" + " + "+((a*d)+(b*c)) + character + " + " + b*d);
-		}
+		answer=(a*c)+ character+"^2 + "+((a*d)+(b*c))+character+" +"+(b*d);
 		return answer;
 	}
 	//This program is used to determine whether or not one integer is evenly divisible by another.
@@ -127,19 +122,9 @@ public class Calculate {
 	}
 	//This program is used to raise a value to a positive integer power.
 	public static double exponent (double number, int exponent){
-		double answer = 1;
-		if(exponent > 0){
-			for(int i = 1; i <= exponent; i++){
-				answer *= number;
-			}
-		}else if(exponent == 0){
-			answer = 1;
-		}else if(exponent < 0){
-			for(int j = exponent; j <= -1; j++){
-				answer *= number;
-			}
-			answer = 1/answer;
-		}
+	 int answer =1;
+		for (int i = 1; i<=exponent; i++){
+			answer *=number;		}
 		return answer;
 	}
 	//This program is used to the factorial of the value passed.
