@@ -1,10 +1,14 @@
+//Bryan Yuen 
+//2nd period 
+//Splitting string
 import java.util.Arrays;
 
 public class Split {
-
+//if input contains space, use sandwichMaker
+//if input contains no space, use sandwichNoSpace
 	public static void main(String[] args) {
-		String sandwich = "hahah bread orange banana bread ham";
-		String answer = sandwichMaker(sandwich);
+		String sandwich = "asdasbreadasdsbreadad";
+		String answer = sandwichNoSpace(sandwich);
 		System.out.println(answer.toString());
 			//String.split();
 			//It's a method that acts on a string, <StringName>.split(<String sp>);
@@ -24,6 +28,26 @@ public class Split {
 			 * What if it's a fancy sandwich with multiple pieces of bread?
 			*/
 			//task 1
+	}
+		public static String sandwichNoSpace (String sandwich){
+			int first = sandwich.indexOf("bread");
+			int second = sandwich.indexOf("bread" , first +4);
+			if (second > 0){
+			String realSandwich = sandwich.substring(first+5, second);
+			if (realSandwich.length() > 1){
+			String [] realSandwich1 = realSandwich.split(" ");
+			String newSandwich1 = Arrays.toString(realSandwich1);
+			sandwich = newSandwich1;
+			}
+			else if (realSandwich.length() < 1){
+				sandwich = "It is not a sandwich!!!!";
+			}
+			}else{ 
+				sandwich = "It is not a sandwich!!!!";
+			}
+			return sandwich;
+		}
+		
 			//String sandwich = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
 			//String [] split = sandwich.split("bread");
 			//String part1 = split[0];
@@ -40,8 +64,6 @@ public class Split {
 			 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 			*/
 			//task2
-
-	}
 	public static String sandwichMaker (String sandwich){
 		int first = sandwich.indexOf("bread");
 		int second = sandwich.indexOf("bread" , first +5);
