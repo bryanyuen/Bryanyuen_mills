@@ -7,8 +7,8 @@ public class Split {
 //if input contains space, use sandwichMaker
 //if input contains no space, use sandwichNoSpace
 	public static void main(String[] args) {
-		String sandwich = "asdasbreadasdsbreadad";
-		String answer = sandwichNoSpace(sandwich);
+		String sandwich = "bread addasd bread";
+		String answer = sandwichMaker(sandwich);
 		System.out.println(answer.toString());
 			//String.split();
 			//It's a method that acts on a string, <StringName>.split(<String sp>);
