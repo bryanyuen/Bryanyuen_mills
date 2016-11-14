@@ -199,17 +199,24 @@ public class Calculate {
     }
     //This program is used to check the discriminant to determine the number of roots and the exact value of the roots.
     public static String quadForm(int a, int b, int c){
-    	double sqrt = Calculate.sqrt(Calculate.discriminant(a, b, c));
-    	double roota = Calculate.round2((-b + sqrt) / (2*a));
-    	double rootb = Calculate.round2((-b - sqrt) / (2*a));
-    	if (roota == rootb){
-    		return String.valueOf(roota);
-    	}else if(Calculate.sqrt(Calculate.discriminant(a, b, c)) <= 0){
-    		return "no real roots";
-    	}else{
-    		return Double.toString(roota) + " and" + Double.toString(rootb);
-    	}
-    }
+		//calculate quadratic formula
+		String answer = "";
+		double discriminant = Calculate.discriminant(a, b, c);
+		if (discriminant < 0){
+			return ("no real roots");
+		}
+		double answer1 = ((-b) + Calculate.sqrt(discriminant)) / (2*a);
+		double answer2 = ((-b) - Calculate.sqrt(discriminant)) / (2*a);
+		if (answer1 == answer2){
+			answer += answer1;
+			return (answer);
+		}else{
+			answer = "\"" + Calculate.round2(answer1) + " and " + Calculate.round2(answer2) + "\"";
+			return (answer);
+		}
+	}
+
+
 }
     	
 
