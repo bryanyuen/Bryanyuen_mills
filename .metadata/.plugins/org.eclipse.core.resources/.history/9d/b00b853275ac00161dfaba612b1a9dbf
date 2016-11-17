@@ -25,14 +25,12 @@ public class FracCalc {
 	    	String secondFraction;
 	    	if(input.indexOf("+") >=0){
 	    		secondFraction = input.substring(input.indexOf("+")+1);
-	    		}else if(input.indexOf("-", 3)>=0){
-	    			secondFraction = input.substring(input.indexOf("-", 3)+1);
+	    		}else if(input.indexOf("-")>=0){
+	    			secondFraction = input.substring(input.indexOf("-")+1);
 	    		}else if(input.indexOf("*")>=0){
 	    			secondFraction = input.substring(input.indexOf("*")+1);
-	    		}else if(input.indexOf("/", 3)>= 0){ 
+	    		}else{ 
 	    			secondFraction = input.substring(input.indexOf("/", 3)+1);
-	    		}else{
-	    			secondFraction = input;
 	    		}
 	        
 	        return secondFraction.trim();

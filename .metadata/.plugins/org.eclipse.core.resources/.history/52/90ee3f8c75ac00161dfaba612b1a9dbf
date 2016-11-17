@@ -29,10 +29,8 @@ public class FracCalc {
 	    			secondFraction = input.substring(input.indexOf("-", 3)+1);
 	    		}else if(input.indexOf("*")>=0){
 	    			secondFraction = input.substring(input.indexOf("*")+1);
-	    		}else if(input.indexOf("/", 3)>= 0){ 
+	    		}else{ 
 	    			secondFraction = input.substring(input.indexOf("/", 3)+1);
-	    		}else{
-	    			secondFraction = input;
 	    		}
 	        
 	        return secondFraction.trim();

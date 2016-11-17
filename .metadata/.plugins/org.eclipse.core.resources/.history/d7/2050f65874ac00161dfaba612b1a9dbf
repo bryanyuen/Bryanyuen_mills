@@ -1,0 +1,23 @@
+package fracCalc;
+import java.util.*;
+public class FracCalc {
+
+	public static void main(String[] args) 
+	{
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please type in your equation");
+		String fractionCalc = input.nextLine();
+		String answer = produceAnswer(fractionCalc);
+		System.out.println(answer);
+		
+	}
+
+	public static String produceAnswer(String calculation){
+		String answer;
+		String[] parts = calculation.split(" ");
+		parts[2] = parts[2].trim();
+		String checkPointOne = parts[2];
+		answer = checkPointOne;
+		return answer;
+	}
+	}
