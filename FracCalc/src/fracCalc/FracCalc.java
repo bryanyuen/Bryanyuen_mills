@@ -2,42 +2,54 @@ package fracCalc;
 import java.util.*;
 public class FracCalc {
 
-	   public static void main(String[] args) 
-	    {
-	    	Scanner userInput = new Scanner (System.in);
-	        // TODO: Read the input from the user and call produceAnswer with an equation
-	    	System.out.println("Please insert your equation");
-	    	String input = userInput.nextLine();
-	    	System.out.println(produceAnswer(input));
-	    }
 
-	    
-	    // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
-	    // This function takes a String 'input' and produces the result
-	    //
-	    // input is a fraction string that needs to be evaluated.  For your program, this will be the user input.
-	    //      e.g. input ==> "1/2 + 3/4"
-	    //        
-	    // The function should return the result of the fraction after it has been calculated
-	    //      e.g. return ==> "1_1/4"
-	    public static String produceAnswer(String input)
-	    { 
-	    	String secondFraction;
-	    	if(input.indexOf("+") >=0){
-	    		secondFraction = input.substring(input.indexOf("+")+1);
-	    		}else if(input.indexOf("-", 3)>=0){
-	    			secondFraction = input.substring(input.indexOf("-", 3)+1);
-	    		}else if(input.indexOf("*")>=0){
-	    			secondFraction = input.substring(input.indexOf("*")+1);
-	    		}else if(input.indexOf("/", 3)>= 0){ 
-	    			secondFraction = input.substring(input.indexOf("/", 3)+1);
-	    		}else{
-	    			secondFraction = input;
-	    		}
-	        
-	        return secondFraction.trim();
-	    }
 
-	    // TODO: Fill in the space below with any helper methods that you think you will need
-	  
-	}
+public static void main(String[] args)
+   {	
+   	System.out.println("Please insert your equation");
+   	Scanner input=new Scanner(System.in);//scanner
+   	String userInput=input.nextLine();
+   	while(userInput.equals("quit")!=true){
+   		String answer=produceAnswer(userInput);
+   		System.out.println(answer);
+   		System.out.println("You can continue");
+   		userInput=input.nextLine();
+   	}
+   	System.out.println("Bye");
+   }
+   public static String produceAnswer(String input)
+   {
+       String[] split = input.split(" ");
+       int[] operand1= parsing(split[0]);
+       int[] operand2= parsing(split[2]);
+       String answer="whole:"+operand2[0]+" numerator:"+operand2[1]+" denominator:"+operand2[2];
+       return answer;
+   }
+   public static int[] parsing(String operand){
+   	String[] part= new String[3];
+   	if(operand.indexOf("_")==-1 && operand.indexOf("/")==-1){
+   		part[0]=operand;
+   		part[1]="0";
+   		part[2]="1";
+   	} else{
+   		if (operand.indexOf("_")>=1){
+   			part[0]= operand.substring(0, operand.indexOf("_"));
+   			operand = operand.substring (operand.indexOf("_")+1);
+   		} else {
+   			part[0]="0";
+   		}
+   		if (operand.indexOf("/")>=1){
+   			part[1]= operand.substring(0, operand.indexOf("/"));
+   			part[2]= operand.substring( operand.indexOf("/")+1);
+   		} else{
+   			part[1]="1";
+   			part[2]="0";
+   		}
+   	}
+   	int[] number=new int [3];
+   	for(int i=0; i<3; i++){
+   		number [i]= Integer.parseInt(part[i]);
+   	}
+   	return number;	
+   }
+}
