@@ -20,12 +20,12 @@ public static void main(String[] args)
    public static String produceAnswer(String input)
    {
        String[] split = input.split(" ");
-       int[] operand1= parsing(split[0]);
-       int[] operand2= parsing(split[2]);
+       int[] operand1= parsingInput(split[0]);
+       int[] operand2= parsingInput(split[2]);
        String answer="whole:"+operand2[0]+" numerator:"+operand2[1]+" denominator:"+operand2[2];
        return answer;
    }
-   public static int[] parsing(String operand){
+   public static int[] parsingInput(String operand){
    	String[] part= new String[3];
    	if(operand.indexOf("_")==-1 && operand.indexOf("/")==-1){
    		part[0]=operand;
