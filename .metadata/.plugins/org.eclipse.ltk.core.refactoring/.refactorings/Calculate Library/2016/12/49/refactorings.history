@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Calculate.java&apos; to &apos;FracCalc/src/fracCalc&apos;&#x0A;- Original project: &apos;Calculate Library&apos;&#x0A;- Destination element: &apos;FracCalc/src/fracCalc&apos;&#x0A;- Original element: &apos;Calculate.java&apos;" description="Copy compilation unit" destination="=FracCalc/src&lt;fracCalc" element1="/src&lt;{Calculate.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1480700710536" units="1" version="1.0"/>
+</session>
