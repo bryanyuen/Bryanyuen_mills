@@ -64,8 +64,6 @@ public static void main(String[] args){
        String operator = split[1].toString();
        if (operator.equals("+") == true){
     	   answer = add(splitFraction1, splitFraction2);
-       }else if(operator.equals("-") == true){
-    	   answer = subtract(splitFraction1, splitFraction2);
        }
        return answer;
    }
@@ -96,20 +94,9 @@ public static String add(int [] splitFraction1, int [] splitFraction2){
 	int firstDenominator = splitFraction1[1];
 	int secondNumerator = splitFraction2[0];
 	int secondDenominator = splitFraction2[1];
-	int gcf= firstDenominator * secondDenominator;
-	System.out.println(gcf);
+	int gcf= Calculate.gcf(firstDenominator, secondDenominator);
 	int sumNumerator = ((gcf/firstDenominator) * firstNumerator) + ((gcf/secondDenominator) * secondNumerator);
 	String answer = sumNumerator + "/" + gcf;
-	return answer;
-}
-public static String subtract(int [] splitFraction1, int [] splitFraction2){
-	int firstNumerator = splitFraction1[0];
-	int firstDenominator = splitFraction1[1];
-	int secondNumerator = splitFraction2[0];
-	int secondDenominator = splitFraction2[1];
-	int gcf= firstDenominator * secondDenominator;
-	int diffNumerator = ((gcf/firstDenominator) * firstNumerator) - ((gcf/secondDenominator) * secondNumerator);
-	String answer = diffNumerator + "/" + gcf;
 	return answer;
 }
 }

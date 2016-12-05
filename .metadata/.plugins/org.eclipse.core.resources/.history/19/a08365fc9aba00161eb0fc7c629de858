@@ -1,0 +1,88 @@
+//Bryan Yuen
+//2nd period
+//FracCalc Project
+package fracCalc;
+import java.util.*;
+public class FracCalc {
+private static final String firstNumerator = null;
+private static final String firstDenominator = null;
+private static final String improperFraction2 = null;
+public static void main(String[] args)
+   {	
+   	System.out.println("Please insert your equation");
+   	Scanner input=new Scanner(System.in);//scanner
+   	String userInput=input.nextLine();
+   	while(userInput.equals("quit")!=true){
+   		String answer = produceAnswer(userInput);
+   		System.out.println(answer);
+   		System.out.println("You can continue");
+   		userInput=input.nextLine();
+   	}
+   	System.out.println("Bye");
+   }
+   public static String produceAnswer(String input)
+   {
+       String[] split = input.split(" ");
+       String improperFraction1 = "";
+       String improperFraction2 ="";
+       String answer = null;
+       int[] operand1 = parsingFraction(split[0]);
+       int[] operand2 = parsingFraction(split[2]);
+       if (split[0].indexOf("_") >= 1){
+        improperFraction1 = Calculate.toImproperFrac(operand1[0], operand1[1], operand1[2]);
+       System.out.println(improperFraction1);
+       }else{ 
+    	   improperFraction1 = split[0];
+           System.out.println(improperFraction1);
+       }
+       if (split[2].indexOf("_") >= 1){
+       improperFraction2 = Calculate.toImproperFrac(operand2[0], operand2[1], operand2[2]);
+       System.out.println(improperFraction2);
+       }else{
+    	   improperFraction2 =split[2];
+    	   System.out.println(improperFraction2);
+       }
+       String operator = split[1].toString();
+       if (operator.equals("+") == true|| operator.equals("-") == true){
+    	   answer = add(improperFraction1, improperFraction2, operator);
+       }
+       return answer;
+   }
+   public static int[] parsingFraction(String operand){
+   	String [] part= new String[3];
+   	if(operand.indexOf("_") == -1 && operand.indexOf("/") == -1){
+   		part[0]=operand;
+   		part[1]="0";
+   		part[2]="1";
+   	} else if(operand.indexOf("_")>=1){
+   			part[0]= operand.substring(0, operand.indexOf("_"));
+   			operand = operand.substring (operand.indexOf("_")+1);
+   		} else {
+   			part[0]="0";
+   		}
+   		if (operand.indexOf("/")>=1){
+   			part[1]= operand.substring(0, operand.indexOf("/"));
+   			part[2]= operand.substring( operand.indexOf("/")+1);
+   		}
+   	int[] number=new int [3];
+   	for(int i = 0; i < 3; i++){
+   		number [i]= Integer.parseInt(part[i]);
+   	}
+   	return number;	
+   }
+   public static String add (String improperFraction1, String improperFraction2, String operator){
+		   String firstNumerator = improperFraction1.substring(0, improperFraction1.indexOf("/"));
+		   String firstDenominator = improperFraction1.substring(improperFraction1.indexOf("/") + 1);
+		   int numerator1 = Integer.parseInt(firstNumerator);
+		   int denominator1 = Integer.parseInt(firstDenominator);
+		   String secondNumerator = improperFraction2.substring(0, improperFraction2.indexOf("/"));
+		   String secondDenominator = improperFraction2.substring(improperFraction2.indexOf("/") + 1);
+		   int numerator2 = Integer.parseInt(secondNumerator);
+		   int denominator2 = Integer.parseInt(secondDenominator);
+		   int numerator = ((Calculate.gcf(denominator1,denominator2)/denominator1) * numerator1) + ((Calculate.gcf(denominator1,denominator2)/denominator2) * numerator2);
+		   String answer = numerator + "/" + Calculate.gcf(denominator1,denominator2);
+	return answer;
+   }
+}
+
+  

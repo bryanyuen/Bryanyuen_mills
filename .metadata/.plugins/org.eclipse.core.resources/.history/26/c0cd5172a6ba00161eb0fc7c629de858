@@ -166,15 +166,22 @@ public class Calculate {
 	//This program is used to find out the greatest common factor of two integers.
 	public static int gcf (int a, int b){
 		int gcd = 1;
-	    if(a>b){
-	    for(int i = a; i >=1; i--){
-	       if(a%i==0 && b%i ==0){
-	    	   return i;
-	       }
+	    if(a>b)
+	    {
+	        for(int i = a; i >=1; i--)
+	        {
+	            if(a%i==0 && b%i ==0)
+	            {
+	                return i;
+	            }
+	        }
 	    }
-	    }else{
-	        for(int j = a; j >=1; j--){
-	            if(a%j==0 && b% j==0){
+	    else
+	    {
+	        for(int j = a; j >=1; j--)
+	        {
+	            if(a%j==0 && b% j==0)
+	            {
 	                return j;
 	            }
 	        }
