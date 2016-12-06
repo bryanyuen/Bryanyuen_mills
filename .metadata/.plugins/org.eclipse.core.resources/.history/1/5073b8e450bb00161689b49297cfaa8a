@@ -73,15 +73,13 @@ public static void main(String[] args){
        	   splitFraction2[0] = operand2[0];
        	   splitFraction2[1] = 1;
           }      
-       String operator = split[1].toString(); //Select the correct method by checking the operator
+       String operator = split[1].toString();
        if (operator.equals("+") == true){
     	   answer = add(splitFraction1, splitFraction2);
        }else if(operator.equals("-") == true){
     	   answer = subtract(splitFraction1, splitFraction2);  
        }else if(operator.equals("*") == true){
     	   answer = multiplication(splitFraction1, splitFraction2);
-       }else if(operator.equals("/") == true){
-    	   answer = division(splitFraction1, splitFraction2);
        }
        return answer;
    }
@@ -101,7 +99,7 @@ public static void main(String[] args){
    			part[1]= operand.substring(0, operand.indexOf("/"));
    			part[2]= operand.substring( operand.indexOf("/")+1);
    		}
-   	int[] number=new int [3]; //Converting String into int
+   	int[] number=new int [3];
    	for(int i = 0; i < 3; i++){
    		number [i]= Integer.parseInt(part[i]);
    	} 
@@ -138,16 +136,6 @@ public static String multiplication (int [] splitFraction1 , int [] splitFractio
 	System.out.println(firstNumerator + "/" + firstDenominator);
 	int secondNumerator = splitFraction2[0];
 	int secondDenominator = splitFraction2[1];
-	System.out.println(secondNumerator + "/" + secondDenominator);
-	String answer = (firstNumerator * secondNumerator) + "/" + (firstDenominator * secondDenominator);
-	return answer;
-}
-public static String division (int [] splitFraction1, int [] splitFraction2){ //This method helps you to find out the division of two fractions
-	int firstNumerator = splitFraction1[0];
-	int firstDenominator = splitFraction1[1];
-	System.out.println(firstNumerator + "/" + firstDenominator);
-	int secondNumerator = splitFraction2[1];
-	int secondDenominator = splitFraction2[0];
 	System.out.println(secondNumerator + "/" + secondDenominator);
 	String answer = (firstNumerator * secondNumerator) + "/" + (firstDenominator * secondDenominator);
 	return answer;
