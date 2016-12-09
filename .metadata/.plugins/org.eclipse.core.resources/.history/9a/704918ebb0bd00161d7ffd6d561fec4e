@@ -107,11 +107,6 @@ public static void main(String[] args){
    }
    public static String toMixedNum(int[] product){
 		String answer;
-		int gcf = Calculate.gcf(product[0],product[1]);
-		if(gcf!=1){
-			product[0] = product[0]/gcf;
-			product[1] = product[1]/gcf;
-		}
 		if(product[1]<0){
 			product[1]=Math.abs(product[1]);
 			product[0] *= -1;

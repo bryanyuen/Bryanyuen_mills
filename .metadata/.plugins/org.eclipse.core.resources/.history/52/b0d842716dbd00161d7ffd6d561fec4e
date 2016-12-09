@@ -40,6 +40,7 @@ public static void main(String[] args){
     	   String [] num = improperFraction1.split("/");
     	   for(int i = 0; i< 2; i++){
     		   splitFraction1[i]= Integer.parseInt(num[i]);
+    		   System.out.println(splitFraction1[0] + "/" + splitFraction1[1]);
     	   }
        }else if(split[0].indexOf("/") >= 0){ 
     	   String [] num = split[0].split("/");
@@ -61,6 +62,7 @@ public static void main(String[] args){
    	   String [] num1 = improperFraction2.split("/");
    	   for(int i = 0; i< 2; i++){
    		   splitFraction2[i]= Integer.parseInt(num1[i]);
+   		   System.out.println(splitFraction2[0] + "/" + splitFraction2[1]);
       }
       }else if(split[2].indexOf("/") >= 1){ 
    	   String [] num1 = split[2].split("/");
@@ -73,13 +75,13 @@ public static void main(String[] args){
           }      
        String operator = split[1].toString(); //Select the correct method by checking the operator
        if (operator.equals("+") == true){
-    	   answer = toMixedNum(add(splitFraction1, splitFraction2));
+    	   answer = add(splitFraction1, splitFraction2);
        }else if(operator.equals("-") == true){
-    	   answer = toMixedNum(subtract(splitFraction1, splitFraction2));  
+    	   answer = subtract(splitFraction1, splitFraction2);  
        }else if(operator.equals("*") == true){
-    	   answer = toMixedNum(multiplication(splitFraction1, splitFraction2));
+    	   answer = multiplication(splitFraction1, splitFraction2);
        }else if(operator.equals("/") == true){
-    	   answer = toMixedNum(division(splitFraction1, splitFraction2));
+    	   answer = division(splitFraction1, splitFraction2);
        }
        return answer;
    }
@@ -105,83 +107,20 @@ public static void main(String[] args){
    	} 
    	return number;	
    }
-   public static String toMixedNum(int[] product){
-		String answer;
-		int gcf = Calculate.gcf(product[0],product[1]);
-		if(gcf!=1){
-			product[0] = product[0]/gcf;
-			product[1] = product[1]/gcf;
-		}
-		if(product[1]<0){
-			product[1]=Math.abs(product[1]);
-			product[0] *= -1;
-		}
-		int coefficient = product[0]/product[1];
-		int remainder = product[0] % product[1];
-		if (remainder % 2 == 0 && product[1] % 2 == 0){
-			product[1] /= 2;
-			remainder /= 2;
-		}else if (product[1] % 3 == 0 && remainder % 3 == 0){
-			coefficient /= 3;
-			remainder /= 3;
-		}
-		int newNumerator = 0;
-		int newDenominator = 0;
-		if (coefficient<0){
-			if(remainder ==  0 && product[1] == 1){
-				answer = (Integer.toString(coefficient));
-			}else if(remainder==0 && product[1]==-1){
-				answer = (Integer.toString(coefficient));
-			}else{
-				answer = (coefficient + "_" + Math.abs(remainder) + "/" + Math.abs(product[1]));
-			}
-		}else if(product[0]%product[1]==0){
-			answer=(coefficient+"");
-		}else if(coefficient==0){
-			if(remainder<0 && product[1]<0){
-				newNumerator = remainder*-1;
-				newDenominator = product[1]*-1;
-				if (newNumerator % 2 == 0 && newDenominator % 2 == 0){
-					newNumerator /= 2;
-					newDenominator /= 2;
-				}else if (newNumerator % 3 == 0 && newDenominator % 3 == 0){
-					newNumerator /= 3;
-					newDenominator /= 3;
-				}
-				answer=(newNumerator + "/" + newDenominator);
-			}else{
-				answer = (remainder + "/" + product[1]);
-			}
-		}else if(remainder<0 && product[1]<0){
-			 newNumerator *= -1;
-			 newDenominator *= -1;
-			 if (newNumerator % 2 == 0 && newDenominator % 2 == 0){
-					newNumerator /= 2;
-					newDenominator /= 2;
-				}else if (newNumerator % 3 == 0 && newDenominator % 3 == 0){
-					newNumerator /= 3;
-					newDenominator /= 3;
-				}
-			answer=((coefficient + "_" + newNumerator) + "/" + newDenominator);
-		}else{
-			answer = ((coefficient + "_" + remainder) + "/" + product[1]);
-		}
-		return answer;
-	}	
-public static int[] add(int [] splitFraction1, int [] splitFraction2){ //This method can help you to find the sum of fractions
+public static String add(int [] splitFraction1, int [] splitFraction2){ //This method can help you to find the sum of fractions
 	int firstNumerator = splitFraction1[0];
 	int firstDenominator = splitFraction1[1];
+	System.out.println(firstNumerator + "/" + firstDenominator);
 	int secondNumerator = splitFraction2[0];
 	int secondDenominator = splitFraction2[1];
+	System.out.println(secondNumerator + "/" + secondDenominator);
 	int gcf= firstDenominator * secondDenominator;
+	System.out.println(gcf);
 	int sumNumerator = ((gcf/firstDenominator) * firstNumerator) + ((gcf/secondDenominator) * secondNumerator);
-	int [] answer = new int [2];
-	answer [0] = sumNumerator;
-	answer [1] = gcf;
-	System.out.println(answer [0] + "/" + answer [1]);
+	String answer = sumNumerator + "/" + gcf;
 	return answer;
 }
-public static int [] subtract(int [] splitFraction1, int [] splitFraction2){ //This method can help you to find the difference of fractions
+public static String subtract(int [] splitFraction1, int [] splitFraction2){ //This method can help you to find the difference of fractions
 	int firstNumerator = splitFraction1[0];
 	int firstDenominator = splitFraction1[1];
 	System.out.println(firstNumerator + "/" + firstDenominator);
@@ -190,41 +129,28 @@ public static int [] subtract(int [] splitFraction1, int [] splitFraction2){ //T
 	System.out.println(secondNumerator + "/" + secondDenominator);
 	int gcf= firstDenominator * secondDenominator;
 	int diffNumerator = ((gcf/firstDenominator) * firstNumerator) - ((gcf/secondDenominator) * secondNumerator);
-	int [] answer = new int [2];
-	answer [0] = diffNumerator;
-	answer [1] = gcf;
+	String answer = diffNumerator + "/" + gcf;
 	return answer;
 }
-public static int []  multiplication (int [] splitFraction1 , int [] splitFraction2){ //This method helps you to find out the product of two fractions
+public static String multiplication (int [] splitFraction1 , int [] splitFraction2){ //This method helps you to find out the product of two fractions
 	int firstNumerator = splitFraction1[0];
 	int firstDenominator = splitFraction1[1];
 	System.out.println(firstNumerator + "/" + firstDenominator);
 	int secondNumerator = splitFraction2[0];
 	int secondDenominator = splitFraction2[1];
 	System.out.println(secondNumerator + "/" + secondDenominator);
-	int [] answer = new int [2];
-	answer [0] = (firstNumerator * secondNumerator);
-	answer [1] = (firstDenominator * secondDenominator);
-	if (answer[0] == 0){
-		answer[0] = 0;
-	}
+	String answer = (firstNumerator * secondNumerator) + "/" + (firstDenominator * secondDenominator);
 	return answer;
 }
-public static int []  division (int [] splitFraction1, int [] splitFraction2){ //This method helps you to find out the division of two fractions
+public static String division (int [] splitFraction1, int [] splitFraction2){ //This method helps you to find out the division of two fractions
 	int firstNumerator = splitFraction1[0];
 	int firstDenominator = splitFraction1[1];
 	System.out.println(firstNumerator + "/" + firstDenominator);
 	int secondNumerator = splitFraction2[1];
 	int secondDenominator = splitFraction2[0];
 	System.out.println(secondNumerator + "/" + secondDenominator);
-	int [] answer = new int [2];
-	answer [0] = (firstNumerator * secondNumerator);
-	answer [1] = (firstDenominator * secondDenominator);
-	if (answer[0] == 0){
-		answer[0] = 0;
-	}
+	String answer = (firstNumerator * secondNumerator) + "/" + (firstDenominator * secondDenominator);
 	return answer;
 }
 }
-
   

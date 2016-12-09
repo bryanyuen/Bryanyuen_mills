@@ -171,9 +171,12 @@ public static void main(String[] args){
 public static int[] add(int [] splitFraction1, int [] splitFraction2){ //This method can help you to find the sum of fractions
 	int firstNumerator = splitFraction1[0];
 	int firstDenominator = splitFraction1[1];
+	System.out.println(firstNumerator + "/" + firstDenominator);
 	int secondNumerator = splitFraction2[0];
 	int secondDenominator = splitFraction2[1];
+	System.out.println(secondNumerator + "/" + secondDenominator);
 	int gcf= firstDenominator * secondDenominator;
+	System.out.println(gcf);
 	int sumNumerator = ((gcf/firstDenominator) * firstNumerator) + ((gcf/secondDenominator) * secondNumerator);
 	int [] answer = new int [2];
 	answer [0] = sumNumerator;
