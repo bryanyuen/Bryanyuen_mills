@@ -165,20 +165,15 @@ public class Calculate {
 		return true;
 	}
 	//This program is used to find out the greatest common factor of two integers.
-	public static int gcf(int num1, int num2){
-		int originalNum1 = num1;
-		int originalNum2 = num2;
-		while(num2!=0){
-			if(Calculate.isDivisibleBy(originalNum1, originalNum2) == true){
-				num1 = num2;
-			}else{
-				int num3 = num1;
-				num1 = num2;
-				num2 = num3%num2;
-		    }
+	public static int gcf(int a, int b){
+		while(a!=0 && b!=0){
+			int c = b;
+			b = a%b;
+			a = c;
 		}
-		return (int)Calculate.absValue(num1);
+		return (int) Calculate.absValue(a+b);
 	}
+	
 	//This program helps you to squareroot a number. 
     public static double sqrt (double number){
     	double t;

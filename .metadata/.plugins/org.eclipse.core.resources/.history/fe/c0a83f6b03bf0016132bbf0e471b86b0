@@ -30,10 +30,10 @@ public static void main(String[] args){
        int[] operand1 = parsingFraction(split[0]); //split the first operand into 3 parts, :whole, numerator, and denominator
        int[] operand2 = parsingFraction(split[2]);
        if (split[0].indexOf("_") >= 0 && operand1[0] >= 0){
-        improperFraction1 = Calculate.toImproperFrac(operand1[0], operand1[1], operand1[2]); //transform into improperFraction
-        String [] num = improperFraction1.split("/"); //split the improperFraction
+        improperFraction1 = Calculate.toImproperFrac(operand1[0], operand1[1], operand1[2]);
+        String [] num = improperFraction1.split("/");
         for(int i = 0; i < 2; i++){
-       		splitFraction1[i]= Integer.parseInt(num[i]); //transform into Int
+       		splitFraction1[i]= Integer.parseInt(num[i]);
        }
        }else if(split[0].indexOf("_") >= 0 && operand1[0] < 0){
     	   improperFraction1 = Calculate.toImproperFrac(operand1[0], -operand1[1], operand1[2]);
@@ -114,7 +114,7 @@ public static String toMixedNum(int [] product){
 			product[1] = product[1]/gcf;//product[1] is the denominator of the answer
 		}
 		if(product[1]<0){
-			product[1]=  absValue(product[1]);
+			product[1]=(int) Calculate.absValue(product[1]);
 			product[0]=product[0]*-1;
 		}
 		int coefficient = product[0]/product[1];
@@ -125,7 +125,7 @@ public static String toMixedNum(int [] product){
 	 		}else if(remainder==0 && product[1]==-1){
 	 			reducedAnswer = (Integer.toString(coefficient));
 	  		}else{
-		  		 reducedAnswer = coefficient + "_" + absValue(remainder) + "/" + absValue(product[1]);
+		  		 reducedAnswer = coefficient + "_" + Calculate.absValue(remainder) + "/" + Calculate.absValue(product[1]);
 			}
 		}else if(remainder==0){
 			reducedAnswer = coefficient+"";		
@@ -146,14 +146,6 @@ public static String toMixedNum(int [] product){
 		}
 	   	return reducedAnswer;
 	}	
-//This program is used to return a number to the absolute value.
-	public static int absValue (int a){
-		if(a<0){
-			return (a+(-a)+(-a));
-		}else{
-			return a;
-		}
-	}
 public static int[] add(int [] splitFraction1, int [] splitFraction2){ //This method can help you to find the sum of fractions
 	int firstNumerator = splitFraction1[0];
 	int firstDenominator = splitFraction1[1];

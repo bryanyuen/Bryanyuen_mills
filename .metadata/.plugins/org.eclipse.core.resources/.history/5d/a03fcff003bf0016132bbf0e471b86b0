@@ -30,10 +30,10 @@ public static void main(String[] args){
        int[] operand1 = parsingFraction(split[0]); //split the first operand into 3 parts, :whole, numerator, and denominator
        int[] operand2 = parsingFraction(split[2]);
        if (split[0].indexOf("_") >= 0 && operand1[0] >= 0){
-        improperFraction1 = Calculate.toImproperFrac(operand1[0], operand1[1], operand1[2]); //transform into improperFraction
-        String [] num = improperFraction1.split("/"); //split the improperFraction
+        improperFraction1 = Calculate.toImproperFrac(operand1[0], operand1[1], operand1[2]);
+        String [] num = improperFraction1.split("/");
         for(int i = 0; i < 2; i++){
-       		splitFraction1[i]= Integer.parseInt(num[i]); //transform into Int
+       		splitFraction1[i]= Integer.parseInt(num[i]);
        }
        }else if(split[0].indexOf("_") >= 0 && operand1[0] < 0){
     	   improperFraction1 = Calculate.toImproperFrac(operand1[0], -operand1[1], operand1[2]);
