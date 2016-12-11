@@ -1,0 +1,69 @@
+
+	import java.util.Date;
+
+
+	public class DoMath {
+
+
+		public static void main(String[] args) {
+			System.out.println(Calculate.quadForm(1, 4, 4));
+			testDoMath("testing quadForm with one real root 1,-3,10 (note this may fail by number of signif digits) \n\t\t","-2.00", Calculate.quadForm(1,4,4));
+			testDoMath("testing quadForm with two real roots (note this may fail if in wrong order) \n\t\t","-2.00 and 5.00", Calculate.quadForm(1,-3,-10));
+			//test time for long square root
+		}
+
+
+		// Integer tester
+		public static void testDoMath(String testDesc, int rightAns, int testAns) {
+			if (rightAns == testAns) {
+				System.out.println(testDesc + " passed");
+
+
+			} else {
+				System.out.println(testDesc + " failed! Returned " + testAns + " instead of " + rightAns);
+			}
+		}
+
+
+		// double tester
+		public static void testDoMath(String testDesc, double rightAns, double testAns) {
+			if (rightAns == testAns) {
+				System.out.println(testDesc + " passed");
+
+
+			} else {
+				System.out.println(testDesc + " failed! Returned " + testAns + " instead of " + rightAns);
+			}
+		}
+		// double tester within limits
+		public static void testDoMath(String testDesc, double rightAns, double testAns, double range) {
+			if (Calculate.absValue(rightAns-testAns) <= range){
+				System.out.println(testDesc + " within " + range + " passed");
+			} else {
+				System.out.println(testDesc + " failed! Returned " + testAns + "instead of " +
+						rightAns + ", outside of range of " + range);
+			}
+		}
+		// String tester
+				public static void testDoMath(String testDesc, String rightAns, String testAns) {
+					if (rightAns.equals(testAns)) {
+						System.out.println(testDesc + " passed");
+
+
+					} else {
+						System.out.println(testDesc + " failed! Returned " + testAns + " instead of " + rightAns);
+					}
+				}
+		// boolean tester
+			public static void testDoMath(String testDesc, boolean rightAns, boolean testAns) {
+				if (rightAns == testAns) {
+					System.out.println(testDesc + " passed");
+
+
+				} else {
+					System.out.println(testDesc + " failed! Returned " + testAns + " instead of " + rightAns);
+				}
+			}
+	}
+
+

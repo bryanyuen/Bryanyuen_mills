@@ -38,7 +38,7 @@ public class Calculate {
 	//This program can help you to find the discriminant of three doubles.
 	public static double discriminant (double aValue,double bValue,double cValue){
 		double answer;
-		answer= (bValue*bValue)+(-4*aValue*cValue);
+		answer= (bValue*bValue)-(4*aValue*cValue);
 		return(answer);
 	}
 	//This program is used to convert mixed number to an improper fraction.
@@ -200,7 +200,7 @@ public class Calculate {
 		double x3;//round the positive solution by using Calculate.round2 method
 		double x4;//round the negative solution by using Calculate.round2 method
 		if(Calculate.discriminant(a, b, c) == 0){
-			x1 = ((-b+Calculate.sqrt(Calculate.discriminant(a, b, c)))/(2*a));
+			x1 = -b / (2 * a);
 			x3 = Calculate.round2(x1);
 			answer = String.valueOf(x3);
 		}else if(Calculate.discriminant(a, b, c) < 0){
